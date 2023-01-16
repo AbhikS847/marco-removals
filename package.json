@@ -1,0 +1,25 @@
+{
+  "name": "marco-removals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "client": "npm start --prefix marco-booking",
+    "clientinstall": "npm install --prefix marco-booking",
+    "dev": "concurrently \"npm run start\" \"npm run client\"",
+    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix marco-booking && npm run build --prefix marco-booking"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.2",
+    "nodemailer": "^6.9.0",
+    "nodemon": "^2.0.20"
+  }
+}

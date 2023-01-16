@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Roboto&display=swap');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+input:focus, textarea:focus{
+    outline:none !important;
+    box-shadow:none !important;
+    border:1px solid #1a775b !important;
+}
+
+.bg-primary{
+    background-color: #1da179!important;
+}
+
+.btn.btn-primary{
+    background-color:#24dba4;
+    border:1px solid #1da179;
+}
+
+.btn.btn-primary:focus{
+    background-color:#1da179;
+    border:1px solid #1da179;
+}
+
+.active.btn.btn-primary{
+    color: #fff !important;
+    background-color: #1da179!important;
+}
+
+a.btn.btn-primary{
+    background-color:2px solid #1a775b !important;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+.navbar-toggler-icon:focus, .navbar-toggler:focus{
+    outline:none !important;
+    box-shadow: none;
+}
+
+.navbar-toggler-icon{
+    color:#fff !important;
+    ;
+}
+
+.navbar-toggler{
+    border-color:#fff !important;
+    
+}
+
+.navbar-toggler.collapsed{
+    border-color:#fff !important;
+}
+
+.nav-link .nav-link.active{
+    font-size:20px !important;
+}
+
+.active.nav-link.active{
+    color: #fff !important;
+    border:1px solid #fff !important;
+    
+}
+
+.navbar-brand{
+    color: #fff !important;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light{
+    background-color: #24dba4!important;
+}
+
+td{
+    width:50%;
+}
