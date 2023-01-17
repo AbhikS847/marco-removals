@@ -21,7 +21,7 @@ const Schedule = () => {
     useEffect(() => {
         const getSchedules = async() => {
             try{
-                const response = await axios.get('/booking');
+                const response = await axios.get(`${process.env.REACT_APP_API_SERVER}/booking`);
                 setSchedules(response.data);
             }
             catch(error){

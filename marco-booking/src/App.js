@@ -7,6 +7,7 @@ import './styles/main.css';
 import Schedule from './components/Schedule';
 
 const App = () =>{
+
   return (<>
     <BrowserRouter className="main">
     <Header />

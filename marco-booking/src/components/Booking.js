@@ -139,7 +139,7 @@ const Booking = () => {
 
           const makeBooking = async() => {
             try{
-              const response = await axios.post('/booking/create',{
+              const response = await axios.post(`${process.env.REACT_APP_API_SERVER}/booking/create`,{
                 _id:Math.floor(Math.random() * 99999999),
                 name:booking.name,
                 number:booking.number,
