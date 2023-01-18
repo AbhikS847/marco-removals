@@ -132,7 +132,7 @@ const Booking = () => {
             number:number,
             email:email,
             location:location,
-            date:bookingDate.getDate() + "/" + (bookingDate.getMonth() + 1) + "/" + bookingDate.getFullYear(),
+            date:(bookingDate.getDate() < 10 ? "0" + bookingDate.getDate() : bookingDate.getDate()) + "/" + (bookingDate.getMonth() + 1) + "/" + bookingDate.getFullYear(),
             time:((bookingTime.getHours() < 10 ? "0" + bookingTime.getHours() : bookingTime.getHours()) + ":" + (bookingTime.getMinutes() < 10 ? "0" + bookingTime.getMinutes() : bookingTime.getMinutes())),
             desc:desc
           }
