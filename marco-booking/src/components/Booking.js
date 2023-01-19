@@ -212,7 +212,7 @@ const Booking = () => {
         <Col xs={12} sm={6}>
         <Form.Group className="mb-3" controlId="date">
         <Form.Label>Date</Form.Label>
-        <ReactDatePicker className="form-control" selected={startDate} onChange={(date) => setStartDate(date)} required minDate={Date.now()}/>
+        <ReactDatePicker dateFormat="dd/MM/yyyy" className="form-control" selected={startDate} onChange={(date) => setStartDate(date)} required minDate={Date.now()}/>
         <Form.Text className="text-muted">
         *Please select a date*
         </Form.Text>
