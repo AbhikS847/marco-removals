@@ -1,5 +1,5 @@
 const sgMail = require('@sendgrid/mail');
-
+const nodemailer = require('nodemailer');
 sgMail.setApiKey(process.env.SENDGRID_API);
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -70,7 +70,35 @@ const sendMail = async(booking) => {
     </div>
     `;
 
-    const msg = {
+    const transporter = nodemailer.createTransport({
+        host: 'smtp-mail.outlook.com',
+        port:587,
+        secure:false,
+        auth:{
+            user:process.env.BUSINESS_USER,
+            pass:process.env.BUSINESS_PASSWORD,
+        },
+        from:'abhikshrestha847@outlook.com',
+        tls:{rejectUnauthorized:false}
+    })
+
+    const options = {
+        from: "abhikshrestha847@outlook.com",
+        to: booking.email,
+        subject: `RE - Booking confirmation (${booking._id})`,
+        html:html
+    };
+
+    transporter.sendMail(options, (err, info) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(info);
+        }
+    })
+
+    /*const msg = {
         to: booking.email,
         from: 'theabhikshrestha@gmail.com',
         subject: `RE - Booking confirmation(${booking._id})`,
@@ -83,7 +111,7 @@ const sendMail = async(booking) => {
     }
     catch(err){
         console.log(err);
-    }
+    }*/
 }
 
 module.exports = sendMail;
