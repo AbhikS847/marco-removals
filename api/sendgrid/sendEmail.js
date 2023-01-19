@@ -71,7 +71,7 @@ const sendMail = async(booking) => {
     `;
 
     const msg = {
-        to: 'abhikshrestha@gmail.com',
+        to: booking.email,
         from: 'theabhikshrestha@gmail.com',
         subject: `RE - Booking confirmation(${booking._id})`,
         html:html
