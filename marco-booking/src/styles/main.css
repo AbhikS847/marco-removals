@@ -82,3 +82,33 @@ a.btn.btn-primary{
 td{
     width:50%;
 }
+
+.moversjumbo{
+    height:50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: relative;
+}
+
+.moversjumbotext{
+    text-align: center;
+    padding: 180px;
+    color:'#fff';
+}
+
+.moversjumbomobile{
+    width: 100%;
+    height:30vh;
+    background-size: cover;
+    background-position: center, center;
+    position: relative;
+    object-fit: contain;
+}
+
+.moversjumbotextmobile{
+    color:#fff;
+    position: absolute;
+    top:40%;
+    left:30%;
+}

@@ -3,11 +3,15 @@ import ReactDatePicker from 'react-datepicker';
 import {GiConfirmed} from "react-icons/gi";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Row, Col, Badge, Modal, Alert} from 'react-bootstrap';
-import {FaUserAlt, FaStickyNote} from 'react-icons/fa';
+import {BsFillHouseDoorFill} from 'react-icons/bs';
+import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck} from 'react-icons/fa';
 import {ImLocation, ImCalendar, ImClock, ImMail2} from 'react-icons/im';
+import {FiPackage} from 'react-icons/fi';
+import { TbArrowNarrowRight } from "react-icons/tb";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import movers from '../../src/movers.jpg';
 
 const BookingModal = (props) => {
 
@@ -114,6 +118,39 @@ const Booking = () => {
     const [confirmationDetails, setConfirmationDetails] = useState({});
   
     return <div>
+    <div className="moversjumbo d-none d-sm-block" style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${movers}')`}}>
+    <div className="moversjumbotext">
+      <h3 className="display-2" style={{color:"#fff",fontWeight:800}}>Marco Removals</h3>
+      <div className="d-flex justify-content-center">
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:8, border:'2px solid #fff'}}>
+      <div><FiPackage size={45} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{padding:"8px 8px 8px 0"}}>
+      <div><TbArrowNarrowRight size={45} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:8, border:'2px solid #fff'}}>
+      <div><FaPeopleCarry size={45} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{padding:"8px 8px 8px 0"}}>
+      <div><TbArrowNarrowRight size={45} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:8, border:'2px solid #fff'}}>
+      <div><FaTruck size={45} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{padding:"8px 8px 8px 0"}}>
+      <div><TbArrowNarrowRight size={45} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:8, border:'2px solid #fff'}}>
+      <div><BsFillHouseDoorFill size={45} style={{color:'#fff'}} /></div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div className="d-block d-sm-none moversjumbomobile" style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${movers}')`}}>
+    <div className="moversjumbotextmobile">
+      <h2 style={{fontWeight:800}}>Marco Removals</h2>
+    </div>
+    </div>
     <Container>
     <h2 className="text-center py-3">Make a booking</h2>
     <Form style={{padding:16, margin:8,border:'3px solid #eaeaea'}} autoComplete="false" onSubmit={(event)=>{
