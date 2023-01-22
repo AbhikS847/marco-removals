@@ -3,10 +3,10 @@ import ReactDatePicker from 'react-datepicker';
 import {GiConfirmed} from "react-icons/gi";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Row, Col, Badge, Modal, Alert} from 'react-bootstrap';
-import {BsFillHouseDoorFill} from 'react-icons/bs';
-import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck} from 'react-icons/fa';
+import {BsFillHouseDoorFill, BsCurrencyDollar} from 'react-icons/bs';
+import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck, FaCouch} from 'react-icons/fa';
 import {ImLocation, ImCalendar, ImClock, ImMail2} from 'react-icons/im';
-import {FiPackage} from 'react-icons/fi';
+import {FiPackage, FiPhoneCall} from 'react-icons/fi';
 import { TbArrowNarrowRight } from "react-icons/tb";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -116,11 +116,51 @@ const Booking = () => {
 
     const [showSuccess, setShowSuccess] = useState(false);
     const [confirmationDetails, setConfirmationDetails] = useState({});
+
   
     return <div>
     <div className="moversjumbo d-none d-sm-block" style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${movers}')`}}>
+    <div className="contactbox">
+      <div className="d-flex justify-content-center" style={{}}>
+      <div style={{padding:5}}>
+      <FiPhoneCall size={30}></FiPhoneCall>
+      </div>
+      <div style={{display:'flex', alignItems:'center', fontSize:25, fontFamily:'Archivo Narrow'}}>
+        Contact:  <a className="px-2 link-primary" href="tel:0406178359">(+61) 0406 178 359 </a>
+      </div>
+      </div>
+    </div>
+    <div className="servicesbox">
+    <div>
+    <h2 style={{textAlign:'center', width:'100%', backgroundColor:'#fff', color:'#1da179', padding:16, boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px', fontFamily: 'Archivo Narrow,sans-serif'}}>Services</h2>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <BsFillHouseDoorFill size={45}></BsFillHouseDoorFill>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Moving houses</div>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <FaCouch size={45}></FaCouch>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Furniture delivery</div>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <FaPeopleCarry size={45}></FaPeopleCarry>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Bulky pickup & delivery</div>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <BsCurrencyDollar size={45}></BsCurrencyDollar>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>No hidden costs</div>
+    </div>
+    </div>
     <div className="moversjumbotext">
-      <h3 className="display-2" style={{color:"#fff",fontWeight:800}}>Marco Removals</h3>
+      <h3 className="display-2" style={{color:"#fff",fontWeight:800, fontFamily: 'Archivo Narrow,sans-serif'}}>Marco Removals</h3>
       <div className="d-flex justify-content-center">
       <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:8, border:'2px solid #fff'}}>
       <div><FiPackage size={45} style={{color:'#fff'}} /></div>
@@ -147,12 +187,43 @@ const Booking = () => {
     </div>
     </div>
     <div className="d-block d-sm-none moversjumbomobile" style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${movers}')`}}>
+    <div className="contactbox-mobile">
+    <div className="d-flex justify-content-center" style={{}}>
+    <div style={{padding:'0px 4px 0px 4px'}}><FiPhoneCall size={15}></FiPhoneCall></div> |
+    <div style={{display:'flex', alignItems:'center', fontSize:15, fontFamily:'Archivo Narrow'}}>
+      <a className="px-2 link-primary" href="tel:0406178359">(+61) 0406 178 359 </a>
+      </div>
+      </div>
+    </div>
     <div className="moversjumbotextmobile">
-      <h2 style={{fontWeight:800}}>Marco Removals</h2>
+      <h1 className="display-4" style={{fontWeight:800, fontFamily: 'Archivo Narrow,sans-serif', letterSpacing:'4px'}}>Marco Removals</h1>
+      <div className="d-flex justify-content-center">
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:4, border:'2px solid #fff'}}>
+      <div><FiPackage size={30} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{padding:"4px 4px 4px 0"}}>
+      <div><TbArrowNarrowRight size={30} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:4, border:'2px solid #fff'}}>
+      <div><FaPeopleCarry size={30} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{padding:"4px 4px 4px 0"}}>
+      <div><TbArrowNarrowRight size={30} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:4, border:'2px solid #fff'}}>
+      <div><FaTruck size={30} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{padding:"4px 4px 4px 0"}}>
+      <div><TbArrowNarrowRight size={30} style={{color:'#fff'}} /></div>
+      </div>
+      <div style={{backgroundColor:'#24dba4', borderRadius:'25%', padding:4, border:'2px solid #fff'}}>
+      <div><BsFillHouseDoorFill size={30} style={{color:'#fff'}} /></div>
+      </div>
+      </div>
     </div>
     </div>
     <Container>
-    <h2 className="text-center py-3">Make a booking</h2>
+    <h2 className="text-center py-3 moversheaders">Bookings</h2>
     <Form style={{padding:16, margin:8,border:'3px solid #eaeaea'}} autoComplete="false" onSubmit={(event)=>{
           event.preventDefault();
 

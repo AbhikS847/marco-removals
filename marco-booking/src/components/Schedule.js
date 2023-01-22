@@ -34,7 +34,7 @@ const Schedule = () => {
 
     return <>
     <Container>
-    <h2 className='text-center py-3'>Marco's Schedule</h2>
+    <h2 className='text-center py-3 moversheaders'>Marco's Schedule</h2>
     {schedules.length === 0 ? 
         <Alert key="info" variant="info">
     <h6>No schedules available yet. Please, keep checking this page for updates or any changes to current schedules.</h6>

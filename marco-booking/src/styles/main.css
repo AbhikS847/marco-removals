@@ -65,9 +65,9 @@ a.btn.btn-primary{
 }
 
 .active.nav-link.active{
-    color: #fff !important;
-    border:1px solid #fff !important;
-    
+    color:#fff;
+    background-color:#1da179;
+    border:1px solid #1da179;
 }
 
 .navbar-brand{
@@ -110,5 +110,56 @@ td{
     color:#fff;
     position: absolute;
     top:40%;
-    left:30%;
+    left:18%;
+}
+
+.moversheaders{
+    background-color:#24dba4;
+    margin:10px;
+    color:#fff;
+    font-weight:400;
+    font-family:'Archivo Narrow';
+}
+
+.servicesbox{
+box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color:#fff;
+    background-color: #24dba4;
+    margin:6px;
+    width:25%;
+    border-radius:5px;
+    position:absolute;
+}
+
+.contactbox{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color:#fff;
+    background-color: #24dba4;
+    padding:8px;
+    text-align: center;
+    bottom:5%;
+    left:42%;
+    font-family:'Archivo Narrow';
+    position:absolute;
+}
+
+.contactbox-mobile{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color:#fff;
+    background-color: #24dba4;
+    text-align: center;
+    top:8%;
+    left:40%;
+    font-family:'Archivo Narrow';
+    position:absolute;
+}
+
+.link-primary{
+    color: #fff !important;
+    text-decoration: none;
+    font-family:'Archivo Narrow';
+}
+
+.link-primary:hover{
+    color:#eaeaea !important;
 }

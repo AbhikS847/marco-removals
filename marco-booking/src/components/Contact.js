@@ -7,7 +7,7 @@ import {GrInstagram} from "react-icons/gr";
 const Contact = () => {
     return <>
     <Container>
-    <h2 className='text-center py-3'>Contact details</h2>
+    <h2 className='text-center py-3 moversheaders'>Contact</h2>
     <Card className="text-center">
       <Card.Header>Marco Removals</Card.Header>
       <Card.Body>
