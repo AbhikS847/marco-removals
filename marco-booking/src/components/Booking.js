@@ -3,7 +3,7 @@ import ReactDatePicker from 'react-datepicker';
 import {GiConfirmed} from "react-icons/gi";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Row, Col, Badge, Modal, Alert} from 'react-bootstrap';
-import {BsFillHouseDoorFill, BsCurrencyDollar} from 'react-icons/bs';
+import {BsFillHouseDoorFill, BsCurrencyDollar, BsInfoCircle} from 'react-icons/bs';
 import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck, FaCouch} from 'react-icons/fa';
 import {ImLocation, ImCalendar, ImClock, ImMail2} from 'react-icons/im';
 import {FiPackage, FiPhoneCall} from 'react-icons/fi';
@@ -103,6 +103,56 @@ const BookingModal = (props) => {
   );
 }
 
+const ServicesModal = (props) => {
+  return(
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header style={{backgroundColor:'#24dba4'}} closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body style={{padding:0, margin:0}}>
+      <div className="servicesbox-mobile">
+    <div>
+    <h2 style={{textAlign:'center', width:'100%', backgroundColor:'#fff', color:'#1da179', padding:16, boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px', fontFamily: 'Archivo Narrow,sans-serif'}}>Services</h2>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <BsFillHouseDoorFill size={45}></BsFillHouseDoorFill>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Moving houses</div>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <FaCouch size={45}></FaCouch>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Furniture delivery</div>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <FaPeopleCarry size={45}></FaPeopleCarry>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Bulky pickup & delivery</div>
+    </div>
+    <div style={{paddingBottom:'8px'}} className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <BsCurrencyDollar size={45}></BsCurrencyDollar>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:24, borderBottom:'3px solid #fff', fontWeight:600, width:'100%', marginLeft:8, borderRadius:'5%'}}>No hidden costs</div>
+    </div>
+    </div>
+      </Modal.Body>
+      <Modal.Footer style={{borderTop:'none', padding:5}}>
+      <p style={{padding:0, margin:0, fontFamily:'Archivo Narrow', fontSize:'18px'}} className="text-muted small w-100">Pricing details will be sent via email or through text message.</p>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 const Booking = () => {
 
     const [firstName, setFirstName] = useState('');
@@ -115,6 +165,7 @@ const Booking = () => {
     const [desc, setDesc] = useState('');
 
     const [showSuccess, setShowSuccess] = useState(false);
+    const [showServices, setShowServices] = useState(false);
     const [confirmationDetails, setConfirmationDetails] = useState({});
 
   
@@ -187,6 +238,9 @@ const Booking = () => {
     </div>
     </div>
     <div className="d-block d-sm-none moversjumbomobile" style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${movers}')`}}>
+    <div className="servicebox-mobile">
+      <Button onClick={()=>{setShowServices(true)}} style={{padding:'0px 4px 1px 4px', margin:'1px 0px 0px 0px', borderRadius:'0'}} size="sm"><BsInfoCircle size={18}></BsInfoCircle></Button>
+    </div>
     <div className="contactbox-mobile">
     <div className="d-flex justify-content-center" style={{}}>
     <div style={{padding:'0px 4px 0px 4px'}}><FiPhoneCall size={15}></FiPhoneCall></div> |
@@ -276,6 +330,7 @@ const Booking = () => {
           setDesc("");
         }}>
     <BookingModal details={confirmationDetails} show={showSuccess} onHide={()=>{setShowSuccess(false)}} />
+    <ServicesModal show={showServices} onHide={()=>{setShowServices(false)}} />
     <Row style={{padding:16}}>
         <h2 style={{color:"#1da179"}}>Details</h2>
         <Col xs={12} sm={4}>
