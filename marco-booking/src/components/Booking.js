@@ -122,27 +122,27 @@ const ServicesModal = (props) => {
     </div>
     <div className="d-flex justify-content-left my-2 px-2">
     <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
-    <BsFillHouseDoorFill size={45}></BsFillHouseDoorFill>
+    <BsFillHouseDoorFill size={30}></BsFillHouseDoorFill>
     </div>
-    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Moving houses</div>
-    </div>
-    <div className="d-flex justify-content-left my-2 px-2">
-    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
-    <FaCouch size={45}></FaCouch>
-    </div>
-    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Furniture delivery</div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:19, fontWeight:600, borderBottom:'2px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Moving houses</div>
     </div>
     <div className="d-flex justify-content-left my-2 px-2">
     <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
-    <FaPeopleCarry size={45}></FaPeopleCarry>
+    <FaCouch size={30}></FaCouch>
     </div>
-    <div style={{padding:'8px 0px 0px 8px', fontSize:24, fontWeight:600, borderBottom:'3px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Bulky pickup & delivery</div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:19, fontWeight:600, borderBottom:'2px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Furniture delivery</div>
+    </div>
+    <div className="d-flex justify-content-left my-2 px-2">
+    <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
+    <FaPeopleCarry size={30}></FaPeopleCarry>
+    </div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:19, fontWeight:600, borderBottom:'2px solid #fff', width:'100%', marginLeft:8, borderRadius:'5%'}}>Bulky pickup & delivery</div>
     </div>
     <div style={{paddingBottom:'8px'}} className="d-flex justify-content-left my-2 px-2">
     <div style={{backgroundColor:'#fff', color:'#1da179', padding:5, borderRadius:'25%', border:'3px solid #1da179'}}>
-    <BsCurrencyDollar size={45}></BsCurrencyDollar>
+    <BsCurrencyDollar size={30}></BsCurrencyDollar>
     </div>
-    <div style={{padding:'8px 0px 0px 8px', fontSize:24, borderBottom:'3px solid #fff', fontWeight:600, width:'100%', marginLeft:8, borderRadius:'5%'}}>No hidden costs</div>
+    <div style={{padding:'8px 0px 0px 8px', fontSize:19, borderBottom:'2px solid #fff', fontWeight:600, width:'100%', marginLeft:8, borderRadius:'5%'}}>No hidden costs</div>
     </div>
     </div>
       </Modal.Body>
