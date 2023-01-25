@@ -196,3 +196,46 @@ ul > li > a{
 ul > li > a:hover{
     color:#eaeaea;
 }
+
+.contactjumbo1{
+    padding:16px;
+}
+
+.contactjumbo1 > div{
+    flex:1;
+}
+
+.contactbox-mini{
+    padding: 16px;
+    width:350px;
+    border-radius:5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px, rgba(0, 0, 0, 0.22) 0px 3px 3px;
+    border-top:6px solid #1da179;
+}
+
+.contactbox-mini-mobile{
+    padding: 16px;
+    width:100%;
+    border-radius:5px;
+    background-color: rgba(255, 255, 255, 0.699);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px, rgba(0, 0, 0, 0.22) 0px 3px 3px;
+    border-top:6px solid #1da179;
+}
+
+.contactbox-links{
+    font-family: 'Archivo Narrow';
+    text-decoration:none;
+    color:#1da179;
+    font-size: 20px;
+}
+
+.contactbox-links:hover{
+    color:#1da179;
+    font-weight: 600;
+}
+
+.contactbox-review{
+    position: absolute;
+    left:25%;
+}
