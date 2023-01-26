@@ -16,6 +16,7 @@ app.use(cors({
 }))
 
 app.use('/booking', require('../routes/bookingRoutes'));
+app.use('/quote', require('../routes/quoteRoutes'));
 
 app.use(errorHandler);
 
