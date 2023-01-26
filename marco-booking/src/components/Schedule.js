@@ -22,13 +22,12 @@ const Schedule = () => {
         const getSchedules = async() => {
             try{
                 const response = await axios.get(`${process.env.REACT_APP_API_SERVER}/booking`);
-                setSchedules(response.data);
+                setSchedules(response.data.reverse());
             }
             catch(error){
                 console.log(error);
             }
         };
-
         getSchedules();
     },[])
 

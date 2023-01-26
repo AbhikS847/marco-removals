@@ -77,7 +77,7 @@ const Contact = () => {
         <Col xs={12} sm={12}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Name</Form.Label>
-        <Form.Control style={{border:'2px solid #1da179', height:50}} type="text" placeholder="Enter name" value={name} onChange={(event)=>{setName(event.target.value)}} required/>
+        <Form.Control style={{height:50}} type="text" placeholder="Enter name" value={name} onChange={(event)=>{setName(event.target.value)}} required/>
       </Form.Group>
         </Col>
         </Row>
@@ -85,13 +85,13 @@ const Contact = () => {
       <Col xs={12} sm={6}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email</Form.Label>
-        <Form.Control style={{border:'2px solid #1da179', height:50}} type="email" value={email} onChange={(event) => {setEmail(event.target.value)}} placeholder="Enter email" required/>
+        <Form.Control style={{height:50}} type="email" value={email} onChange={(event) => {setEmail(event.target.value)}} placeholder="Enter email" required/>
       </Form.Group>
           </Col>
           <Col xs={12} sm={6}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Number</Form.Label>
-        <Form.Control style={{border:'2px solid #1da179', height:50}} type="number" value={number} onChange={(event) => {setNumber(event.target.value)}} placeholder="Enter phone number" required/>
+        <Form.Control style={{height:50}} type="number" value={number} onChange={(event) => {setNumber(event.target.value)}} placeholder="Enter phone number" required/>
       </Form.Group>
           </Col>
       </Row>
@@ -99,7 +99,7 @@ const Contact = () => {
         <Col>
         <Form.Group className="mb-3" controlId="textarea">
       <Form.Label>Description</Form.Label>
-      <Form.Control className="form-control" style={{height:100, border:'2px solid #1da179'}} value={desc} onChange={(event)=>{setDesc(event.target.value)}} as="textarea" aria-label="With textarea" />
+      <Form.Control className="form-control" style={{height:100}} value={desc} onChange={(event)=>{setDesc(event.target.value)}} as="textarea" aria-label="With textarea" />
       </Form.Group>
         </Col>
       </Row>
@@ -168,7 +168,7 @@ const Contact = () => {
     </div>
     </div>
     </div>
-    <div className ="d-block d-sm-none quotebox-mobile" style={{backgroundColor:'#24dba4', margin:8, padding:8, color:'#fff', borderTop:'4px solid #1da179', boxShadow:'rgba(0, 0, 0, 0.25) 0px 2px 4px, rgba(0, 0, 0, 0.22) 0px 1px 1px'}}>
+    <div className ="d-block d-sm-none quotebox-mobile" style={{backgroundColor:'#fff', margin:16, padding:8, borderRadius:'5px', color:'#1da179', borderTop:'4px solid #1da179', boxShadow:'rgba(0, 0, 0, 0.25) 0px 2px 4px, rgba(0, 0, 0, 0.22) 0px 1px 1px'}}>
     <h2  style={{fontFamily:'Archivo Narrow', textAlign:'center', padding:6}}>Get a quote</h2>
       <Container>
       <Form onSubmit={(event)=>{handleSubmit(event)}}>
@@ -176,7 +176,7 @@ const Contact = () => {
         <Col xs={12}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Name</Form.Label>
-        <Form.Control style={{height:'50px', border:'2px solid #1da179'}} type="text" value={name} onChange={(event)=>{setName(event.target.value)}} placeholder="Enter name" required/>
+        <Form.Control style={{height:'50px'}} type="text" value={name} onChange={(event)=>{setName(event.target.value)}} placeholder="Enter name" required/>
       </Form.Group>
         </Col>
         </Row>
@@ -184,13 +184,13 @@ const Contact = () => {
       <Col xs={12}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email</Form.Label>
-        <Form.Control style={{height:'50px', border:'2px solid #1da179'}} type="email" value={email} onChange={(event)=>{setEmail(event.target.value)}} placeholder="Enter email" required/>
+        <Form.Control style={{height:'50px'}} type="email" value={email} onChange={(event)=>{setEmail(event.target.value)}} placeholder="Enter email" required/>
       </Form.Group>
           </Col>
           <Col xs={12}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Number</Form.Label>
-        <Form.Control style={{height:'50px', border:'2px solid #1da179'}} type="number" value={number} onChange={(event)=>{setNumber(event.target.value)}} placeholder="Enter phone number" required/>
+        <Form.Control style={{height:'50px'}} type="number" value={number} onChange={(event)=>{setNumber(event.target.value)}} placeholder="Enter phone number" required/>
       </Form.Group>
           </Col>
       </Row>
@@ -198,7 +198,7 @@ const Contact = () => {
         <Col>
         <Form.Group className="mb-3" controlId="textarea">
       <Form.Label>Description</Form.Label>
-      <Form.Control className="form-control" style={{height:100, border:'2px solid #1da179'}} value={desc} onChange={(event)=>{setDesc(event.target.value)}}  as="textarea" aria-label="With textarea" />
+      <Form.Control className="form-control" style={{height:100}} value={desc} onChange={(event)=>{setDesc(event.target.value)}}  as="textarea" aria-label="With textarea" />
       </Form.Group>
         </Col>
       </Row>
