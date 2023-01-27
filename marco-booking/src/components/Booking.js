@@ -3,8 +3,9 @@ import ReactDatePicker from 'react-datepicker';
 import {GiConfirmed} from "react-icons/gi";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Row, Col, Badge, Modal, Alert} from 'react-bootstrap';
-import {BsFillHouseDoorFill, BsCurrencyDollar, BsInfoCircle} from 'react-icons/bs';
-import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck, FaCouch} from 'react-icons/fa';
+import {AiFillDollarCircle} from 'react-icons/ai';
+import {BsFillHouseDoorFill, BsCurrencyDollar} from 'react-icons/bs';
+import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck, FaCouch, FaBars} from 'react-icons/fa';
 import {ImLocation, ImCalendar, ImClock, ImMail2} from 'react-icons/im';
 import {FiPackage, FiPhoneCall} from 'react-icons/fi';
 import { TbArrowNarrowRight } from "react-icons/tb";
@@ -163,11 +164,14 @@ const Booking = () => {
     const [startDate, setStartDate] = useState(Date.now());
     const [time, setTime] = useState('');
     const [desc, setDesc] = useState('');
-
+    const [price, setPrice] = useState('');
     const [showSuccess, setShowSuccess] = useState(false);
     const [showServices, setShowServices] = useState(false);
     const [confirmationDetails, setConfirmationDetails] = useState({});
 
+    const priceInserter = (price) => {
+      setPrice(price);
+    }
   
     return <div>
     <div className="moversjumbo d-none d-sm-block" style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${movers}')`}}>
@@ -239,7 +243,7 @@ const Booking = () => {
     </div>
     <div className="d-block d-sm-none moversjumbomobile" style={{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${movers}')`}}>
     <div className="servicebox-mobile">
-      <Button onClick={()=>{setShowServices(true)}} style={{padding:'0px 4px 1px 4px', margin:'1px 0px 0px 0px', borderRadius:'0'}} size="sm"><BsInfoCircle size={18}></BsInfoCircle></Button>
+      <Button onClick={()=>{setShowServices(true)}} style={{padding:'0px 4px 1px 4px', margin:'1px 0px 0px 0px', borderRadius:'0'}} size="sm"><FaBars size={18}></FaBars></Button>
     </div>
     <div className="contactbox-mobile">
     <div className="d-flex justify-content-center" style={{}}>
@@ -277,7 +281,7 @@ const Booking = () => {
     </div>
     </div>
     <Container>
-    <h2 className="text-center py-3 moversheaders">Bookings</h2>
+    <h2 className="text-center py-3 moversheaders">Create A Job</h2>
     <Form style={{padding:16, margin:8,border:'3px solid #eaeaea'}} autoComplete="false" onSubmit={(event)=>{
           event.preventDefault();
 
@@ -404,7 +408,43 @@ const Booking = () => {
       </Col>
     </Row>
     <Row>
-        <Col className="text-center" xs={12} sm={6}>
+    <h2 style={{color:"#1da179"}}>Set your price</h2>
+    <Form.Text className="text-muted">
+      Select one of our prices below or feel free to set the price for your job.
+        </Form.Text>
+    <Col xs={12} sm={12}>
+    <div className="pricingbtnrow">
+    <Button className='d-none d-sm-block pricingbtns' style={{marginLeft:0}} onClick={()=>{priceInserter(150);}} variant="primary">$150</Button>
+    <Button className='d-none d-sm-block pricingbtns' onClick={()=>{priceInserter(300);}} variant="primary">$300</Button>
+    <Button className='d-none d-sm-block pricingbtns' onClick={()=>{priceInserter(375);}} variant="primary">$375</Button>
+    <Button className='d-none d-sm-block pricingbtns' onClick={()=>{priceInserter(420);}} variant="primary">$420</Button>
+    <Button className='d-none d-sm-block pricingbtns' onClick={()=>{priceInserter(500);}} variant="primary">$500</Button>
+    <Button className='d-none d-sm-block pricingbtns' onClick={()=>{priceInserter(550);}} variant="primary">$550</Button>
+    <Button className='d-none d-sm-block pricingbtns' onClick={()=>{priceInserter(580);}} variant="primary">$580</Button>
+    <Row className='d-block d-sm-none'>
+    <Col className="d-flex">
+    <Button className='d-block d-sm-none pricingbtns-mobile' style={{marginLeft:0}} onClick={()=>{priceInserter(150);}} variant="primary">$150</Button>
+    <Button className='d-block d-sm-none pricingbtns-mobile' onClick={()=>{priceInserter(300);}} variant="primary">$300</Button>
+    <Button className='d-block d-sm-none pricingbtns-mobile' onClick={()=>{priceInserter(375);}} variant="primary">$375</Button>
+    <Button className='d-block d-sm-none pricingbtns-mobile' onClick={()=>{priceInserter(420);}} variant="primary">$420</Button>
+    <Button className='d-block d-sm-none pricingbtns-mobile' onClick={()=>{priceInserter(500);}} variant="primary">$500</Button>
+    <Button className='d-block d-sm-none pricingbtns-mobile' onClick={()=>{priceInserter(550);}} variant="primary">$550</Button>
+    <Button className='d-block d-sm-none pricingbtns-mobile' onClick={()=>{priceInserter(580);}} variant="primary">$580</Button>
+    </Col>
+    </Row>
+    <AiFillDollarCircle className="d-none d-sm-block" style={{color:'#24dba4', marginLeft:12, marginRight:12, border:'2px solid #24dba4', borderRadius:'25px'}} size={45} /><Form.Control className="d-none d-sm-block" style={{width:'15%', color:'#1da179', fontFamily:'Archivo Narrow', fontSize:23, fontWeight:600}} type="number" placeholder="enter price" value={price} onChange={(event)=>{setPrice(event.target.value)}} required/>
+    </div>
+    <div className="d-flex d-sm-none justify-content-center">
+    <div className="d-flex d-sm-none align-items-center"><AiFillDollarCircle className="d-flex d-sm-none" style={{color:'#24dba4', border:'2px solid #24dba4', borderRadius:'25px', marginRight:'8px'}} size={45} /></div>
+    <Form.Control className="d-block d-sm-none text-center my-2" style={{width:'100%', color:'#1da179', fontFamily:'Archivo Narrow', fontSize:20, fontWeight:600}} type="number" placeholder="enter price" value={price} onChange={(event)=>{setPrice(event.target.value)}} required/>
+    </div>
+    <Form.Text className="text-muted">
+      <strong>Please note that some prices may vary depending on the type of job assigned.</strong>
+        </Form.Text>
+    </Col>
+    </Row>
+    <Row>
+        <Col className="text-center py-2" xs={12} sm={6}>
         <Button className='d-sm-none w-100' variant="primary" type="submit">
         Submit
       </Button>
