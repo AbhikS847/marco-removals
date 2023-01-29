@@ -276,3 +276,31 @@ ul > li > a:hover{
     font-family:'Archivo Narrow';
     margin-left:4px;
 }
+
+.movers-fileuploader{
+    padding:48px;
+    margin-top:8px;
+    border:2px solid #eaeaea;
+    color:#1da179;
+    text-align: center;
+}
+
+.moversfileicon{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.movers-btn{
+    background-color: #1da179 !important;
+    font-family: 'Archivo Narrow';
+    font-size: 19px;
+}
+
+.movers-btn:hover{
+    background-color:#24dba4 !important;
+}
+
+.movers-btn:focus{
+    background-color:#24dba4 !important;
+}

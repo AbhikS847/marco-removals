@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import ReactDatePicker from 'react-datepicker';
 import {GiConfirmed} from "react-icons/gi";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Row, Col, Badge, Modal, Alert} from 'react-bootstrap';
 import {AiFillDollarCircle} from 'react-icons/ai';
-import {BsFillHouseDoorFill, BsCurrencyDollar} from 'react-icons/bs';
+import {BsFillHouseDoorFill, BsCurrencyDollar, BsCloudUpload} from 'react-icons/bs';
 import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck, FaCouch, FaBars} from 'react-icons/fa';
 import {ImLocation, ImCalendar, ImClock, ImMail2} from 'react-icons/im';
 import {FiPackage, FiPhoneCall} from 'react-icons/fi';
@@ -154,6 +154,18 @@ const ServicesModal = (props) => {
   );
 }
 
+const handleFileChange = (event) => {
+  const fileObj = event.target.files && event.target.files[0];
+  if(!fileObj){
+    return;
+  }
+
+  event.target.value = null;
+
+  console.log(fileObj);
+
+};
+
 const Booking = () => {
 
     const [firstName, setFirstName] = useState('');
@@ -168,6 +180,7 @@ const Booking = () => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [showServices, setShowServices] = useState(false);
     const [confirmationDetails, setConfirmationDetails] = useState({});
+    const inputRef = useRef(null);
 
     const priceInserter = (price) => {
       setPrice(price);
@@ -442,6 +455,19 @@ const Booking = () => {
       <strong>Please note that some prices may vary depending on the type of job assigned.</strong>
         </Form.Text>
     </Col>
+    </Row>
+    <Row className="py-2"><h2 style={{color:"#1da179"}}>Upload an image</h2>
+    <Form.Text className="text-muted">
+    Providing us photos of items that you want moved. Example photos of wardrobe, refrigirators, appliances, mattresses and etc...
+        </Form.Text>
+      <Col>
+      <div className="movers-fileuploader" onClick={()=>{inputRef.current.click()}}>
+      <input ref={inputRef} onChange={handleFileChange} className="d-none" type="file" multiple></input>
+        <div className="moversfileicon"><BsCloudUpload size={60} /></div>
+        <h2 style={{fontFamily:'Archivo Narrow', fontWeight:600}} className="py-3">Upload your files here</h2>
+        <Button className="movers-btn">Select files</Button>
+      </div>
+      </Col>
     </Row>
     <Row>
         <Col className="text-center py-2" xs={12} sm={6}>
