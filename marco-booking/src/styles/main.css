@@ -1,6 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Roboto&display=swap');
 
+@media only screen and (min-width:360px){
+    .movers-fileuploader{
+        padding:4px;
+        margin-top:8px;
+        border:2px solid #eaeaea;
+        color:#1da179;
+        text-align: center;
+    }
+    .moversfileicon{
+        padding-top:24px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .movers-btn{
+        background-color: #1da179 !important;
+        font-family: 'Archivo Narrow';
+        font-size: 19px;
+        margin-bottom:8px;
+    }
+}
+
+@media only screen and (min-width:768px){
+    .movers-fileuploader{
+        padding:48px;
+        margin-top:8px;
+        border:2px solid #eaeaea;
+        color:#1da179;
+        text-align: center;
+    }
+
+    .moversfileicon{
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .movers-btn{
+        background-color: #1da179 !important;
+        font-family: 'Archivo Narrow';
+        font-size: 19px;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width:8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #24dba4;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1da179;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:#1da179;
+  }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -257,7 +322,7 @@ ul > li > a:hover{
     padding:16px;
     border:2px solid #eaeaea;
     display:flex;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .pricingbtns{
@@ -277,30 +342,28 @@ ul > li > a:hover{
     margin-left:4px;
 }
 
-.movers-fileuploader{
-    padding:48px;
-    margin-top:8px;
-    border:2px solid #eaeaea;
-    color:#1da179;
-    text-align: center;
-}
-
-.moversfileicon{
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.movers-btn{
-    background-color: #1da179 !important;
-    font-family: 'Archivo Narrow';
-    font-size: 19px;
-}
-
 .movers-btn:hover{
     background-color:#24dba4 !important;
 }
 
 .movers-btn:focus{
     background-color:#24dba4 !important;
+}
+
+.imagebox{
+    overflow-x:auto;
+}
+
+.imagebox-mobile{
+    overflow-x: auto;
+}
+
+.removebutton{
+    transition: 500ms;
+    cursor:pointer !important;
+}
+
+.removebutton:hover{
+    background-color:#8B0000 !important;
+    transition: 500ms;
 }

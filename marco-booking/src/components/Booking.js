@@ -4,7 +4,7 @@ import {GiConfirmed} from "react-icons/gi";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Row, Col, Badge, Modal, Alert} from 'react-bootstrap';
 import {AiFillDollarCircle} from 'react-icons/ai';
-import {BsFillHouseDoorFill, BsCurrencyDollar, BsCloudUpload} from 'react-icons/bs';
+import {BsFillHouseDoorFill, BsCurrencyDollar, BsCloudUpload, BsTrash} from 'react-icons/bs';
 import {FaUserAlt, FaStickyNote, FaPeopleCarry, FaTruck, FaCouch, FaBars} from 'react-icons/fa';
 import {ImLocation, ImCalendar, ImClock, ImMail2} from 'react-icons/im';
 import {FiPackage, FiPhoneCall} from 'react-icons/fi';
@@ -154,18 +154,6 @@ const ServicesModal = (props) => {
   );
 }
 
-const handleFileChange = (event) => {
-  const fileObj = event.target.files && event.target.files[0];
-  if(!fileObj){
-    return;
-  }
-
-  event.target.value = null;
-
-  console.log(fileObj);
-
-};
-
 const Booking = () => {
 
     const [firstName, setFirstName] = useState('');
@@ -180,10 +168,25 @@ const Booking = () => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [showServices, setShowServices] = useState(false);
     const [confirmationDetails, setConfirmationDetails] = useState({});
+    const [files, setUploadedFiles] = useState([]);
     const inputRef = useRef(null);
+
+    const handleFileChange = (event) => {
+      const chosenFiles = Array.prototype.slice.call(event.target.files);
+      if(!chosenFiles){
+        return;
+      }
+      setUploadedFiles([...files, ...chosenFiles]);
+    };
+    
 
     const priceInserter = (price) => {
       setPrice(price);
+    }
+
+    const removeFile = (filename) => {
+      const updatedFiles = files.filter(file => file.name !== filename);
+      setUploadedFiles(updatedFiles);
     }
   
     return <div>
@@ -349,7 +352,7 @@ const Booking = () => {
     <BookingModal details={confirmationDetails} show={showSuccess} onHide={()=>{setShowSuccess(false)}} />
     <ServicesModal show={showServices} onHide={()=>{setShowServices(false)}} />
     <Row style={{padding:16}}>
-        <h2 style={{color:"#1da179"}}>Details</h2>
+        <h2 style={{color:"#1da179", fontFamily:'Archivo Narrow'}}>Details</h2>
         <Col xs={12} sm={4}>
         <Form.Group className="mb-3" controlId="firstname">
         <Form.Label>First name</Form.Label>
@@ -421,7 +424,7 @@ const Booking = () => {
       </Col>
     </Row>
     <Row>
-    <h2 style={{color:"#1da179"}}>Set your price</h2>
+    <h2 style={{color:"#fff", padding:8, backgroundColor:'#24dba4', fontFamily:'Archivo Narrow', textAlign:'center'}}>Set your price</h2>
     <Form.Text className="text-muted">
       Select one of our prices below or feel free to set the price for your job.
         </Form.Text>
@@ -456,16 +459,40 @@ const Booking = () => {
         </Form.Text>
     </Col>
     </Row>
-    <Row className="py-2"><h2 style={{color:"#1da179"}}>Upload an image</h2>
+    <Row className="py-4"><h2 style={{color:"#1da179", fontFamily:'Archivo Narrow'}}>Upload an image</h2>
     <Form.Text className="text-muted">
     Providing us photos of items that you want moved. Example photos of wardrobe, refrigirators, appliances, mattresses and etc...
         </Form.Text>
       <Col>
-      <div className="movers-fileuploader" onClick={()=>{inputRef.current.click()}}>
-      <input ref={inputRef} onChange={handleFileChange} className="d-none" type="file" multiple></input>
+      <div className="movers-fileuploader">
+      <input ref={inputRef} onChange={handleFileChange} className="d-none" type="file" multiple accept="image/png, image/gif, image/jpeg"></input>
+      {files.length === 0 ? <>
         <div className="moversfileicon"><BsCloudUpload size={60} /></div>
         <h2 style={{fontFamily:'Archivo Narrow', fontWeight:600}} className="py-3">Upload your files here</h2>
-        <Button className="movers-btn">Select files</Button>
+      </> :<><div className="d-none d-sm-flex mb-3 imagebox">
+        {files.map((file) => {
+          return(
+            <div style={{border:'2px solid #eaeaea', padding:8, margin:16, display:'flex', justifyContent:'center', flexDirection:'column', position:'relative'}} key={file.name + Math.floor(Math.random() * 9999999)}>
+            <div className="removebutton" style={{position:'absolute', top:15, right:15, borderRadius:'5px', color:'#fff', padding:4, backgroundColor:'#DC143C'}} onClick={()=>{removeFile(file.name)}}><BsTrash size={25} /></div>
+            <div><img height="300px" alt={file.name} src={URL.createObjectURL(file)} /></div>
+            <div className="py-2"><p style={{fontFamily:'Archivo Narrow', fontSize:18}}>{file.name}</p></div>
+            </div>
+          )
+        })}
+      </div>
+      <div className="d-flex d-sm-none mb-3 imagebox-mobile">
+        {files.map((file) => {
+          return(
+            <div style={{border:'2px solid #eaeaea', padding:4, margin:8, display:'flex', justifyContent:'center', flexDirection:'column', position:'relative'}} key={file.name + Math.floor(Math.random() * 9999999)}>
+            <div className="removebutton" style={{position:'absolute', top:15, right:15, borderRadius:'5px', color:'#fff', padding:4, backgroundColor:'#DC143C'}} onClick={()=>{removeFile(file.name)}}><BsTrash size={25} /></div>
+            <div><img width="100%" style={{objectFit:'cover'}} alt={file.name} src={URL.createObjectURL(file)} /></div>
+            <div className="py-2"><p style={{fontFamily:'Archivo Narrow', fontSize:18}}>{file.name}</p></div>
+            </div>
+          )
+        })}
+      </div>
+      </>}
+        <Button className="movers-btn" onClick={()=>{inputRef.current.click()}}>Select files</Button>
       </div>
       </Col>
     </Row>
