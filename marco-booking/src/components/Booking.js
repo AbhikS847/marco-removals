@@ -298,7 +298,7 @@ const Booking = () => {
     </div>
     <Container>
     <h2 className="text-center py-3 moversheaders">Create A Job</h2>
-    <Form style={{padding:16, margin:8,border:'3px solid #eaeaea'}} autoComplete="false" onSubmit={(event)=>{
+    <Form encType='multipart/form-data' style={{padding:16, margin:8,border:'3px solid #eaeaea'}} autoComplete="false" onSubmit={(event)=>{
           event.preventDefault();
 
           const timeJSON = JSON.stringify(time);
@@ -308,6 +308,7 @@ const Booking = () => {
           const dateJSON = JSON.stringify(startDate);
           const dateStr = JSON.parse(dateJSON);
           const bookingDate = new Date(dateStr);
+          const bookingFormData = new FormData();
 
           const booking = {
             name:firstName + " "  + lastName,
@@ -316,21 +317,26 @@ const Booking = () => {
             location:location,
             date:(bookingDate.getDate() < 10 ? "0" + bookingDate.getDate() : bookingDate.getDate()) + "/" + (bookingDate.getMonth() + 1) + "/" + bookingDate.getFullYear(),
             time:((bookingTime.getHours() < 10 ? "0" + bookingTime.getHours() : bookingTime.getHours()) + ":" + (bookingTime.getMinutes() < 10 ? "0" + bookingTime.getMinutes() : bookingTime.getMinutes())),
-            desc:desc
+            desc:desc,
+            price:price,
+            images:files
           }
+          bookingFormData.append('_id', Math.floor(Math.random() * 99999999));
+          bookingFormData.append('name', booking.name);
+          bookingFormData.append('number', booking.number);
+          bookingFormData.append('email', booking.email);
+          bookingFormData.append('location', booking.location);
+          bookingFormData.append('date', booking.date);
+          bookingFormData.append('time', booking.time);
+          bookingFormData.append('desc', booking.desc);
+          bookingFormData.append('price', booking.price);
+          bookingFormData.append('images', booking.images);
+
+          console.log(booking.images);
 
           const makeBooking = async() => {
             try{
-              const response = await axios.post(`${process.env.REACT_APP_API_SERVER}/booking/create`,{
-                _id:Math.floor(Math.random() * 99999999),
-                name:booking.name,
-                number:booking.number,
-                email:booking.email,
-                location:booking.location,
-                date:booking.date,
-                time:booking.time,
-                desc:booking.desc
-              });
+              const response = await axios.post(`${process.env.REACT_APP_API_SERVER}/booking/create`, bookingFormData);
               console.log(response.data);
               setConfirmationDetails(response.data);
               setShowSuccess(true);
@@ -348,6 +354,8 @@ const Booking = () => {
           setStartDate(Date.now());
           setTime("");
           setDesc("");
+          setPrice("");
+          setUploadedFiles([]);
         }}>
     <BookingModal details={confirmationDetails} show={showSuccess} onHide={()=>{setShowSuccess(false)}} />
     <ServicesModal show={showServices} onHide={()=>{setShowServices(false)}} />
@@ -465,7 +473,7 @@ const Booking = () => {
         </Form.Text>
       <Col>
       <div className="movers-fileuploader">
-      <input ref={inputRef} onChange={handleFileChange} className="d-none" type="file" multiple accept="image/png, image/gif, image/jpeg"></input>
+      <input ref={inputRef} name='photos' onChange={handleFileChange} className="d-none" type="file" multiple accept="image/png, image/gif, image/jpeg"></input>
       {files.length === 0 ? <>
         <div className="moversfileicon"><BsCloudUpload size={60} /></div>
         <h2 style={{fontFamily:'Archivo Narrow', fontWeight:600}} className="py-3">Upload your files here</h2>

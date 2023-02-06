@@ -32,6 +32,14 @@ const bookingSchema = mongoose.Schema({
     desc:{
         type:String,
         required:false
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    images:{
+        type:Array,
+        required:false
     }
 });
 
