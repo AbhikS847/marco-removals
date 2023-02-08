@@ -335,7 +335,7 @@ const Booking = () => {
 
           if(booking.images != null){
             booking.images.forEach((image) => {
-              bookingFormData.append('images', image.name);
+              bookingFormData.append('images', image);
             })
           }
           else{

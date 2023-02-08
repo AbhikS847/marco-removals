@@ -7,10 +7,10 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../uploads');
+        cb(null, './uploads');
     },
     filename: (req, file, cb) => {
-        cb(null, path.extname(file.originalname) + '_' + Date.now());
+        cb(null,  Date.now() + '_' + path.extname(file.originalname));
     }
 });
 
@@ -26,9 +26,9 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({storage, fileFilter});
 
-router.post('/create',  upload.array('photos'), async(req,res) => {
-    const {_id, name, number, email, location, date, time, desc, price, images} = req.body;
-
+router.post('/create',  upload.any('photos'), async(req,res) => {
+    const {_id, name, number, email, location, date, time, desc, price} = req.body;
+    const images = req.files;
     console.log(images);
 
     if(!name || !number || !email || !location || !date || !time || !price){
