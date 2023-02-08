@@ -24,12 +24,10 @@ const fileFilter = (req, file, cb) => {
     }
 }
 
-const upload = multer({storage: storage, fileFilter});
+const upload = multer({storage, fileFilter});
 
-router.post('/create', upload.any('photos'), async(req,res) => {
-    const {_id, name, number, email, location, date, time, desc, price} = req.body;
-
-    const images = req.files;
+router.post('/create',  upload.array('photos'), async(req,res) => {
+    const {_id, name, number, email, location, date, time, desc, price, images} = req.body;
 
     console.log(images);
 

@@ -330,9 +330,17 @@ const Booking = () => {
           bookingFormData.append('time', booking.time);
           bookingFormData.append('desc', booking.desc);
           bookingFormData.append('price', booking.price);
-          bookingFormData.append('images', booking.images);
 
           console.log(booking.images);
+
+          if(booking.images != null){
+            booking.images.forEach((image) => {
+              bookingFormData.append('images', image.name);
+            })
+          }
+          else{
+            bookingFormData.append('images', []);
+          }
 
           const makeBooking = async() => {
             try{

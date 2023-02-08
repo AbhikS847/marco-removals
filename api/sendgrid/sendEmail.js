@@ -94,7 +94,8 @@ const sendMail = async(booking) => {
             console.log(err);
         }
         else{
-            console.log(info);
+            console.log("Email sent");
+            //console.log(info);
         }
     })
 
