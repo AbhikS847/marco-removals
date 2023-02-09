@@ -27,14 +27,14 @@ const BookingModal = (props) => {
     centered>
           <Modal.Header style={{backgroundColor:"#24dba4", color:"#fff"}} closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <GiConfirmed style={{color:'#fff'}} size={24} /> Booking confirmation  
+          <GiConfirmed style={{color:'#fff'}} size={24} /> Job confirmation  
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <Alert key="success" variant="success">
         <div className="text-center">
-        <p style={{margin:4, fontSize:25}}><strong>Booking confirmed!</strong></p>
-        <p style={{margin:4}}><strong>Booking ID:</strong> {props.details._id === null ? "" : props.details._id}</p>
+        <p style={{margin:4, fontSize:25}}><strong>Job confirmed!</strong></p>
+        <p style={{margin:4}}><strong>Job ID:</strong> {props.details._id === null ? "" : props.details._id}</p>
         <p style={{margin:4}}><strong>Date: </strong> {props.details.date === null ? "" : (props.details.date)}</p>
         </div>
       </Alert>
@@ -95,6 +95,27 @@ const BookingModal = (props) => {
         <div>{props.details.desc === "" ? "(No description added)" : props.details.desc}</div>
       </div>
       </div>
+      <hr></hr>
+      <div style={{backgroundColor:'#24dba4', color:"#fff", padding:4, display:'flex', justifyContent:'center'}}>
+      <h3 className="my-2" style={{letterSpacing:2}}>Price</h3>
+      </div>
+      <div style={{ border:'2px solid #eaeaea', marginTop:8}} className="d-flex justify-content-center">
+      <div className="" style={{fontFamily:"Archivo Narrow", fontSize:35, padding:8, letterSpacing:2, color:'#1da179'}}>${props.details.price}</div>
+      </div>
+      <hr />
+      <h5 className="py-2"><strong>Attachments</strong>
+      <div className="d-flex py-2" style={{overflowX:'auto'}}>
+      {
+        (props.details.images.length === 0 ? <p style={{fontSize:16}}>No images attached or provided.</p> : props.details.images.map((image) => {
+        const url = process.env.REACT_APP_API_SERVER + "/uploads/" + image.filename
+        return (
+          <div key={image.filename} style={{border:'2px solid #eaeaea', padding:4, marginLeft:4}}>
+          <img src={url} height="150px" alt={image.filename} />
+          </div>)
+      }))
+      }
+      </div>
+      </h5>
       </>)}
       </Modal.Body>
       <Modal.Footer>

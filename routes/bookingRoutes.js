@@ -51,7 +51,7 @@ router.post('/create',  upload.any('photos'), async(req,res) => {
 
     booking.save();
 
-    res.send(req.body);
+    res.send(booking);
 
     sendMail(booking);
 });
