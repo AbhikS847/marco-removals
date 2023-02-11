@@ -8,11 +8,15 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 const sendMail = async(booking) => {
 
     const html =`
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Roboto&display=swap" rel="stylesheet">
+    <div style="font-size:1em;padding:8px;margin:8px;font-family:'Archivo Narrow', sans-serif; text-align: center; background-color: #24dba4;color:#fff"><h1>Marco Removals</h1></div>
     <div style="padding:8px;margin:8px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
     <div style="text-align:center;border:1px solid #eaeaea;padding:16px;background-color: #d1e7dd;color:#0f5132;font-family:Arial, Helvetica, sans-serif">
-        <p style="font-size:25px; font-weight:700;">Booking confirmed!</p>
-        <p style="font-size:16px; font-weight:700;">Booking ID: ${booking._id}</p>
+        <p style="font-size:25px; font-weight:700;">Job confirmed!</p>
+        <p style="font-size:16px; font-weight:700;">Job ID: ${booking._id}</p>
         <p style="font-size:16px; font-weight:700;">Date: ${booking.date} </p>
     </div>
     <div>
@@ -68,6 +72,9 @@ const sendMail = async(booking) => {
         </div>
     </div>
     </div>
+    <hr />
+    <div style="font-size:12px;padding:4px;font-family:Arial, Helvetica, sans-serif; text-align: center; background-color: #24dba4; letter-spacing:1px;color:#fff"><h1>Price</h1></div>
+    <div style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size:20px;border:2px solid #eaeaea;margin-top:8px;text-align: center;color:#1da179;font-size:16px;letter-spacing: 4px;"><h1>$ ${booking.price}</h1></div>
     `;
 
     const transporter = nodemailer.createTransport({
