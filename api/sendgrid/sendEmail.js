@@ -6,7 +6,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"];
 
 const sendMail = async(booking) => {
-
+    console.log(booking);
     const html =`
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,6 +76,19 @@ const sendMail = async(booking) => {
     <div style="font-size:12px;padding:4px;font-family:Arial, Helvetica, sans-serif; text-align: center; background-color: #24dba4; letter-spacing:1px;color:#fff"><h1>Price</h1></div>
     <div style="font-family:'Archivo Narrow', sans-serif;font-size:20px;border:2px solid #eaeaea;margin-top:8px;text-align: center;color:#1da179;font-size:16px;letter-spacing: 4px;"><h1>$ ${booking.price}</h1></div>
     `;
+    const uploadPath = "./uploads";
+    var filestoAttach = [];
+
+    if(booking.images.length != '0'){
+        console.log(booking.images);
+        booking.images.forEach((file) => {
+            console.log(file.filename);
+            filestoAttach.push({
+                filename: file.filename,
+                path:uploadPath + "/" + file.filename
+            });
+        })
+    }
 
     const transporter = nodemailer.createTransport({
         host: 'smtp-mail.outlook.com',
@@ -93,7 +106,8 @@ const sendMail = async(booking) => {
         from: "abhikshrestha847@outlook.com",
         to: booking.email,
         subject: `RE - Booking confirmation (${booking._id})`,
-        html:html
+        html:html,
+        attachments:filestoAttach
     };
 
     transporter.sendMail(options, (err, info) => {
