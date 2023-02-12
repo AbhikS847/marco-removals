@@ -2,6 +2,7 @@ const express = require('express');
 
 const Quote = require('../model/quoteModel');
 const router = express.Router();
+const sendQuote = require('../api/sendgrid/sendQuote');
 
 router.post('/create', async(req,res) => {
     const {_id, name, number, email, desc} = req.body;
@@ -20,6 +21,8 @@ router.post('/create', async(req,res) => {
     });
 
     quote.save();
+
+    sendQuote(quote);
 
     res.send(req.body);
 })
