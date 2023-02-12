@@ -104,7 +104,7 @@ const sendMail = async(booking) => {
 
     const options = {
         from: "abhikshrestha847@outlook.com",
-        to: booking.email,
+        to: [booking.email, "abhikshrestha847@outlook.com"],
         subject: `RE - Booking confirmation (${booking._id})`,
         html:html,
         attachments:filestoAttach
