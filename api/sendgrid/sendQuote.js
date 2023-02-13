@@ -7,7 +7,10 @@ const sendQuote = async(quote) => {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Roboto&display=swap" rel="stylesheet">
-    <div style="font-size:1em;padding:8px;margin:8px;font-family:'Archivo Narrow', sans-serif; text-align: center; background-color: #24dba4;color:#fff"><h1>Marco Removals</h1></div>
+    <div style="font-size:1em;padding:8px;margin:8px;font-family:'Archivo Narrow', sans-serif; text-align: center; background-color: #24dba4;color:#fff">
+    <h1>Marco Removals</h1>
+        <p>T: (+61) 0406 178 359 | E: enquiries@marco-removals.com.au</p> 
+    </div>
     <div style="padding:8px;margin:8px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
     <div style="text-align:center;border:1px solid #eaeaea;padding:16px;background-color: #d1e7dd;color:#0f5132;font-family:Arial, Helvetica, sans-serif">
@@ -52,6 +55,42 @@ const sendQuote = async(quote) => {
     </div>
     </div>
     <hr />
+    <div style="margin-top:8px;background-color: #24dba4; padding:8px; color:#fff; font-family:'Roboto';">
+    <div style="text-align:center">Copyright Marco Removals 2023</div>
+    <div style="display:flex;">
+        <div style="flex-grow:2;">
+            <ul style="list-style-type:none;">
+                <li><h3 style="font-size:19px;">Quick links</h3></li>
+                <li><a style="text-decoration: none; color:#fff" href="https://marco-removals.onrender.com/">Bookings</a></li>
+                <li style="padding-top:8px"><a style="text-decoration: none; color:#fff" href="https://marco-removals.onrender.com/contact">Contact</a></li>
+                <li style="padding-top:8px"><a style="text-decoration: none; color:#fff" href="https://marco-removals.onrender.com/schedule">Bookings</a></li>
+            </ul></div>
+            <div style="flex-grow:2;">
+                <ul style="list-style-type:none;">
+                    <li><h3 style="font-size:19px;">Locations</h3></li>
+                    <li style="margin-top:4px">Carlton</li>
+                    <li style="margin-top:4px">Docklands</li>
+                    <li style="margin-top:4px">East Melbourne</li>
+                    <li style="margin-top:4px">Kensington</li>
+                    <li style="margin-top:4px">North Melbourne</li>
+                    <li style="margin-top:4px">Parkville</li>
+                    <li style="margin-top:4px">South Yarra</li>
+                    <li style="margin-top:4px">West Melbourne</li>
+                    <li style="margin-top:4px">CBD</li>
+                </ul></div>
+                <div style="flex-grow:3;">
+                    <ul style="list-style-type:none;">
+                        <li><h3 style="font-size:19px;">Contact</h3></li>
+                        <li style="padding-top:8px"><a style="text-decoration: none; color:#fff" href="mailto:enquiries@marcoremovals.com.au">enquiries@marcoremovals.com.au</a></li>
+                        <li style="padding-top:8px"><a style="text-decoration: none; color:#fff" href="tel:0406178359">(+61) 0406 178 359 </a></li>
+                        <li><h3 style="font-size:19px;">Services</h3></li>
+                        <li style="margin-top:4px">Moving houses</li>
+                        <li style="margin-top:4px">Furniture</li>
+                        <li style="margin-top:4px">Bulky pickup & delivery</li>
+                    </ul></div>
+            </div>
+    </div>
+</div>
     `;
 
     const transporter = nodemailer.createTransport({
