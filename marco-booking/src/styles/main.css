@@ -22,6 +22,13 @@
         font-size: 19px;
         margin-bottom:8px;
     }
+
+    .moverslogin{
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 @media only screen and (min-width:768px){
@@ -43,6 +50,13 @@
         background-color: #1da179 !important;
         font-family: 'Archivo Narrow';
         font-size: 19px;
+    }
+
+    .moverslogin{
+        width:40%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 

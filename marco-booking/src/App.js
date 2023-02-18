@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './styles/main.css';
 import Schedule from './components/Schedule';
+import Login from './components/Login';
 
 const App = () =>{
 
@@ -16,6 +17,7 @@ const App = () =>{
         <Route path="/" element={<Booking />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/schedule" element={<Schedule />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
