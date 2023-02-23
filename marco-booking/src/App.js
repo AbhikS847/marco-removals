@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import './styles/main.css';
 import Schedule from './components/Schedule';
 import Login from './components/Login';
+import Signup from './components/Signup';
 
 const App = () =>{
 
@@ -18,6 +19,7 @@ const App = () =>{
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/schedule" element={<Schedule />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
