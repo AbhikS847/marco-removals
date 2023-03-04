@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Booking from './components/Booking';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -23,6 +25,7 @@ const App = () =>{
       </Routes>
       <Footer />
     </BrowserRouter>
+    <ToastContainer />
   </>)
 }
 
