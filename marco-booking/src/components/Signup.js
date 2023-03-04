@@ -1,18 +1,37 @@
-import React , {useState} from 'react';
+import React , {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import { Container, Form, Button} from 'react-bootstrap';
 import {BsPersonCircle} from 'react-icons/bs';
+import {useSelector, useDispatch} from 'react-redux';
+import { register, reset} from '../features/auth/authSlice';
 
 const Signup = () => {
 
   const [formData, setFormData] = useState({
     name:'',
     email:'',
-    password1:'',
+    password:'',
     password2:''
   });
 
-  const {name, email, password1, password2} = formData;
+  const {name, email, password, password2} = formData;
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {user, isLoading, isError, isSuccess, message} = useSelector(state => state.auth);
+
+  useEffect(() => {
+    if(isError){
+      toast.error(message);
+    }
+    if(isSuccess || user){
+      navigate('/');
+    }
+
+    dispatch(reset());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -24,11 +43,16 @@ const Signup = () => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    if(password1 !== password2){
+    if(password !== password2){
       toast.error('Passwords do not match');
     }
     else{
-      console.log(formData);
+      const userData = {
+        name,
+        email,
+        password
+      };
+      dispatch(register(userData));
     }
   }
 
@@ -36,7 +60,7 @@ const Signup = () => {
         <div style={{background:'radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%)'}}>
         <Container className="moverslogin">
         <div className="" style={{padding:0, margin:16, border:"2px solid #eaeaea", backgroundColor:"#fff"}}>
-        <h2 className="display-5 text-center" style={{backgroundColor:'#1da179', color:'#fff',fontFamily:'Archivo Narrow', padding:8}}>Sign Up</h2>
+        <h2 className="display-5 text-center" style={{backgroundColor:'#1da179', color:'#fff',fontFamily:'Archivo Narrow', padding:8}}>Sign Up </h2>
         <div className="text-center" style={{padding:16, margin:8}}>
             <div><BsPersonCircle size={60} style={{color:"#1da179"}} /></div>
             <Form style={{textAlign:'left'}} onSubmit={onSubmit}>
@@ -50,7 +74,7 @@ const Signup = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
       <Form.Label style={{fontFamily:'Archivo Narrow', fontSize:20, color:'#1da179'}}>Password</Form.Label>
-        <Form.Control style={{height:45}} type="password" placeholder="Password" required value={password1} name='password1' onChange={onChange} />
+        <Form.Control style={{height:45}} type="password" placeholder="Password" required value={password} name='password' onChange={onChange} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
       <Form.Label style={{fontFamily:'Archivo Narrow', fontSize:20, color:'#1da179'}}>Confirm password</Form.Label>

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Container, Form, Button} from 'react-bootstrap';
 import {BsPersonCircle} from 'react-icons/bs';
+import { useSelector, useDispatch } from 'react-redux';
+import { login } from '../features/auth/authSlice';
 
 const Login = () => {
 
@@ -11,6 +13,10 @@ const Login = () => {
 
   const {email, password} = formData;
 
+  const dispatch = useDispatch();
+
+  const {user, isLoading, isSuccess, message} = useSelector((state) => state.auth);
+
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -20,6 +26,12 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const userData = {
+      email,
+      password
+    }
+
+    dispatch(login(userData));
   }
 
     return(
