@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {toast} from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import {SpinnerCircular} from 'spinners-react';
 import { Container, Form, Button} from 'react-bootstrap';
 import {BsPersonCircle} from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
-import { login } from '../features/auth/authSlice';
+import { login, reset } from '../features/auth/authSlice';
 
 const Login = () => {
 
@@ -15,7 +18,20 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  const {user, isLoading, isSuccess, message} = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if(isError){
+      toast.error(message);
+    }
+    if(isSuccess || user){
+      navigate('/dashboard');
+    }
+
+    dispatch(reset());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -32,6 +48,10 @@ const Login = () => {
     }
 
     dispatch(login(userData));
+  }
+
+  if(isLoading){
+    return <div className="text-center" style={{margin:150}}><SpinnerCircular size="30" /></div>
   }
 
     return(

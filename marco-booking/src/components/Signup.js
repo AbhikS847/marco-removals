@@ -5,6 +5,7 @@ import { Container, Form, Button} from 'react-bootstrap';
 import {BsPersonCircle} from 'react-icons/bs';
 import {useSelector, useDispatch} from 'react-redux';
 import { register, reset} from '../features/auth/authSlice';
+import {SpinnerCircular} from 'spinners-react';
 
 const Signup = () => {
 
@@ -27,7 +28,7 @@ const Signup = () => {
       toast.error(message);
     }
     if(isSuccess || user){
-      navigate('/');
+      navigate('/dashboard');
     }
 
     dispatch(reset());
@@ -54,6 +55,10 @@ const Signup = () => {
       };
       dispatch(register(userData));
     }
+  }
+
+  if(isLoading){
+    return <div className="text-center" style={{margin:150}}><SpinnerCircular size="30" /></div>
   }
 
     return(

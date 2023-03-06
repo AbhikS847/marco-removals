@@ -10,6 +10,7 @@ import './styles/main.css';
 import Schedule from './components/Schedule';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Dashboard from './components/Dashboard';
 
 const App = () =>{
 
@@ -22,6 +23,7 @@ const App = () =>{
         <Route path="/schedule" element={<Schedule />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
